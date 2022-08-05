@@ -1,0 +1,12 @@
+{
+    "terminal.integrated.shellArgs.windows": null,
+    "files.associations": {
+        "xlocale": "cpp",
+        "iostream": "cpp",
+        "bit": "cpp",
+        "ostream": "cpp",
+        "cstring": "cpp",
+        "vector": "cpp",
+        "map": "cpp"
+    }
+}
