@@ -7,6 +7,7 @@
         "ostream": "cpp",
         "cstring": "cpp",
         "vector": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "xstring": "cpp"
     }
 }
