@@ -8,6 +8,7 @@
         "cstring": "cpp",
         "vector": "cpp",
         "map": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "ios": "cpp"
     }
 }
