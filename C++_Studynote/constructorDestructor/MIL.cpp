@@ -23,8 +23,8 @@ class MIL2 {
 // 3. Use MIL to initialize constant data members and reference data members.
 class MIL3 {
     private:
-        const int const_m = 8;
-        int& ref_m = global;
+        const int const_m;
+        int& ref_m;
     public:
         MIL3(int a, int& b) : const_m(a), ref_m(b) {} // Value of const_m and ref_m will be the one that is assigned by MIL not by data members
 };

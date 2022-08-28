@@ -4,15 +4,26 @@ using namespace std;
 class A {
     private:
         int a;
+        static const int b;
+        const int c;
+        static int d;
 
     public:
-        A() {}
+        A() : a(10), b(20), c(30), d(40) // initialization
+        {
+            // Assignment
+            a = 10;
+            b = 20; // static const cannot be assignment()
+            c = 30;
+            d = 40; 
+        }
+
         void add() {
             a += 1;
         }
 
         void substract(const int& a) {
-            a += 1; //error as a is const int reference
+            a += 1; //error, a is const int reference
             this->a -= a;
         }
 
@@ -24,12 +35,20 @@ class A {
             cout << a << endl;
             a += 1; // error
         }
+
+        const int func(int num) const
+        {
+            num += 1;
+            num += a;
+            num += c;
+        }
+
 };
 
 int main() {
     A a; // non const object can call both non const and const 
     const A b; // const object cannot call non const member function
-
+    
     a.add();
     a.print();
     b.add(); // since b is const object, it cannot be modified also it cannot call non const member fucntion

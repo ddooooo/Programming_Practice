@@ -39,7 +39,7 @@ int main() {
     ptrc = &a;
     ptrc++; // change the address of the pointer is valid
     *ptrc = a; // change the value of pointer is NOT valid
-    
+    cptr = &a;
     const int wow;
     iptr = new int[10];
     
