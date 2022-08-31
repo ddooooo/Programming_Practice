@@ -44,7 +44,7 @@ int extractMin(vector<int>& heap)
     int min = heap[0];
     if(heap.size() == 1) return min;
 
-    // Copy last element to the minimum element
+    // Copy last element to the root 
     // then remove the last element from the list 
     heap[0] = heap.back();
     heap.pop_back();

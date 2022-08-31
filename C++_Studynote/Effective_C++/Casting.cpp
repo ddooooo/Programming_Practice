@@ -37,7 +37,7 @@ class SpecialWindow : public Window
 
         virtual void onResize()
         {
-            static_cast<Window>(*this).onResize();
+            static_cast<Window>(*this).onResize(); // Not good, *this will be copied, then call onResize(), which will onyl affect member data in copied object 
             Window::onResize();
             resize();
 

@@ -17,12 +17,20 @@ class Ground {
         const int c;
     public:
         Ground() : c(10) {
-            cout << "Default Ground Constructor" << endl;
+            //cout << "Default Ground Constructor" << endl;
         }
         Ground(int a, int b) : a(a), b(b), c(10){ //const number variable can be changed by mil
             //c = 20; // cannot be changed in consturctor body
-            cout << "Conversion Ground" << endl;
+            //cout << "Conversion Ground" << endl;
         }
+
+        virtual void pureVirtualFunc() = 0;
+
+        void getPrivate() const
+        {
+            cout << "Non-virtual function" << endl;
+        }
+
         void funcGround() {
             cout << "function in Ground " << a << " " << b << endl;
         }
@@ -39,11 +47,17 @@ class Base : public Ground{
         float b;
     public:
         Base() : a(10.6), b(20.6) {
-            cout << "Default Base Constructor" << endl;
+            //cout << "Default Base Constructor" << endl;
         }
         Base(float a, int b) : a(a), b(b) {
-            cout << "Conversion Base" << endl;
+            //cout << "Conversion Base" << endl;
         }
+
+        virtual void pureVirtualFunc()
+        {
+            cout << "Pure virtual function in base" << endl;
+        }
+
         void funcBase() {
             cout << "function in Base " << a << " " << b << endl;
         }
@@ -56,11 +70,10 @@ class Base : public Ground{
 
 class Derived : public Base {
     private:
-        Ground b;
         Base a;
     public:
         Derived() : Base(10, 20) {  // if there is no base default constructor defined in Base class, error
-            cout << "Derived Constructor" << endl;
+            //cout << "Derived Constructor" << endl;
         }
         void funcDerived() {
             cout << "Function in Derived" << endl;
@@ -82,8 +95,17 @@ int main() {
     // Derived b;
     // b.FuncInherit();
 
-    Base* p = new Derived();
-    p->FuncInherit();
+    Ground g; // abstract class cannot be initialize 
+
+    Ground* gp = new Derived();
+    gp->FuncInherit();
+    gp->getPrivate();
+
+    cout << endl;
+
+
+    Base b;
+    b.getPrivate();
 
     //Derived a;
     //a.funcBase();
