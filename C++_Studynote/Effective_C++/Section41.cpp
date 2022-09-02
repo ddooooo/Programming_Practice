@@ -33,6 +33,7 @@ bool operator!=(Widget& w1, Widget& w2)
     return false;
 }
 
+// Explicit interface
 void doProcessing(Widget& w)
 {
     NastyWidget nw;
@@ -44,8 +45,15 @@ void doProcessing(Widget& w)
     }
 }
 
+// Implicit interface
 template<typename T>
-void doProcessing(Tt& w)
+void doProcessing(T& w)
 {
-    
+    T nw;
+    if(w.size() > 10 && w != nw)
+    {
+        T temp(w);
+        temp.normalize();
+        temp.swap(nw);
+    }
 }

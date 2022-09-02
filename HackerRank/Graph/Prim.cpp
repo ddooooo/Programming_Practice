@@ -1,7 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <map>
-#include <unordered_map>
 
 using namespace std;
 
@@ -27,46 +25,13 @@ int extractMin(vector<pair<int,int>>& Q)
     return min_node;
 }
 
-int main()
+int prim(int start, int n, vector<vector<int>>& shop, vector<bool>& fish, 
+                        vector<vector<int>>& w, vector<vector<int>>& adj)
 {
-    int n, m, k;
-    cin >> n >> m >> k;
-
-    vector<vector<int>> shop(n);
-    for(int i=0; i<n; ++i)
-    {
-        int n_fish;
-        cin >> n_fish;
-        for(int j=0; j<n_fish; ++j)
-        {
-            int type;
-            cin >> type;
-            shop[i].push_back(type-1);
-        }
-    }
-    
-
-    vector<vector<int>> adj(n);
-    vector<vector<int>> weights(n, vector<int>(n));
-
-    for(int i=0; i<m; ++i)
-    {
-        int u, v;
-        cin >> u >> v;
-        adj[u-1].push_back(v-1);
-        adj[v-1].push_back(u-1);
-
-        int w;
-        cin >> w;
-        cout << "w: " << w << endl;
-        weights[u-1][v-1] = w;
-        weights[v-1][u-1] = w;
-    }
-        
     vector<int> parent(n, -1);
     vector<int> key(n, 10001);
-    vector<bool> fish(k, false);
     vector<pair<int, int>> Q(n);
+    
     key[0] = 0;
     cout << shop[0][0] << endl;
     fish[ shop[0][0] ] = true;
@@ -99,48 +64,54 @@ int main()
         for(int i=0; i<adj[node].size(); ++i)
         {
             int nbor = adj[node][i];
-            int new_w = weights[node][nbor];
+            int new_w = w[node][nbor];
             if( new_w < key[nbor])
             {
                 cout << "Update node!" << endl;
                 cout << node << " to " << nbor << " with " << new_w << endl;
-                key[nbor] = weights[node][nbor];
+                key[nbor] = w[node][nbor];
                 Q[nbor].second = key[nbor];
                 parent[nbor] = node;
             }
         }
     }
+}
+
+int main()
+{
+    int n, m, k;
+    cin >> n >> m >> k;
+
+    vector<vector<int>> shop(n);
+    vector<bool> fish(k, false);
     
-    int num_fish = 0;
-    for(int i=0; i<k; ++i)
+    for(int i=0; i<n; ++i)
     {
-        if(fish[i] == true)
+        int n_fish;
+        cin >> n_fish;
+        for(int j=0; j<n_fish; ++j)
         {
-            cout << "Fish " << i << " taken!" << endl;
-            ++num_fish;
+            int type;
+            cin >> type;
+            shop[i].push_back(type-1);
         }
     }
     
-    if(num_fish == k)
-    {
-        return big_cat;
-    }
-    
-    // int little_cat = 0;
-    // while(Q.empty())
-    // {
-    //     int node = extractMin(Q);
 
-    //     for(int i=0; i<adj[node].size(); ++i)
-    //     {
-    //         int nbor = adj[node][i];
-    //         if(fish[nbor] == false)
-    //         {
-    //             key[nbor] = weights[node][nbor];
-    //             parent[nbor] = node;
-    //         }
-    //     }
-    // }
-    
-    
+    vector<vector<int>> adj(n);
+    vector<vector<int>> weights(n, vector<int>(n));
+
+    for(int i=0; i<m; ++i)
+    {
+        int u, v;
+        cin >> u >> v;
+        adj[u-1].push_back(v-1);
+        adj[v-1].push_back(u-1);
+
+        int w;
+        cin >> w;
+        cout << "w: " << w << endl;
+        weights[u-1][v-1] = w;
+        weights[v-1][u-1] = w;
+    }
 }
