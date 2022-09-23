@@ -10,12 +10,12 @@ class Car {
     public:
         virtual int getSpeed() const = 0; // need to have virtual to override, pure virtual function //put this function because it is essential to the class but dont know how to implement
         virtual int getSpeed() = 0;
-        Car func1(int a) { 
-            getSpeed();
-            Car();
-        } // cannot return by value
+        // Car func1(int a) { 
+        //     getSpeed();
+        //     Car();
+        // } // cannot return by value
 
-        int func2(Car a) {} // If parameter has type of abstract class, it is error
+        /int func2(Car a) {} // If parameter has type of abstract class, it is error
 };
 
 // Use of getSpeed in class Car
@@ -35,7 +35,7 @@ class BMW1000 final : public Car { // final -> no class can inhertiance this cla
 };
 
 int main() {
-    Car c;
+    //Car c;
     Car* p; // pointer and reference to an abstract class is 
 
     BMW1000 b; //if no virtual function, it wont call BMW1000 class, then it will be error

@@ -16,7 +16,7 @@ class SmartPtr
         explicit SmartPtr(T* realPtr)
         {}
 
-        // Even though generalized copy constructor is defined, the copy constructor need to be defined
+        // Even though generalized copy constructor is defined, the copy constructor still needs to be defined
         SmartPtr(const SmartPtr& other)
         {}
 

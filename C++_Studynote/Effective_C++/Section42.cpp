@@ -28,7 +28,7 @@ void print2nd(const C& container)
 }
 
 // There are exception when typename is not allowed
-template<typename T>
+template <typename T>
 class Derived : public Base<T>::Nested // Exception #1: never use typename in the list of base class inhertiance
 {
     public:
@@ -36,12 +36,11 @@ class Derived : public Base<T>::Nested // Exception #1: never use typename in th
         {
             typename Base<T>::Nested temp; // Need to use typename
         }
-}
-
+};
 
 // Using typename and typedef at the sametime
 // it looks weird but it is required to use
-template<typename IterT>
+template <typename IterT>
 void workWithIterator(IterT iter)
 {
     // It returns the type of a object, which is pointed by IterT type obejct
