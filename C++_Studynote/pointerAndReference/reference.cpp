@@ -1,11 +1,21 @@
 #include <iostream>
 using namespace std;
 
+int a = 10;
+
+int& test(int num)
+{
+    a = num;
+
+    return a;
+}
+
 int main() {
-    int a = 10;
-    int& ref = a;
-    int b = 30;
-    ref = b;
-    ref += 10;
-    cout << ref << endl;
+    
+    
+    int* ref = &test(30);
+
+    *ref = 50;
+
+    cout << a << endl;
 }

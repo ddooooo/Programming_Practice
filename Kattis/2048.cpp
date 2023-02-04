@@ -65,7 +65,6 @@ int** recursion(int** arr, int track[][4])
     {
         for(int j=0; j<3; j++)
         {
-
             if(result[i][j] == 0)
             {
                 result[i][j] = result[i][j+1];
