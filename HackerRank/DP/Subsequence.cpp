@@ -58,8 +58,6 @@ int PlayWithWords(string s)
         t[i][i] = 1;
     }
 
-    
-
     for(int l=2; l<=n; ++l)
     {
         for(int i=0; i<n-(l-1); ++i)

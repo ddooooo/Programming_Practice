@@ -3,7 +3,7 @@ using namespace std;
 
 // ***************Abstract class***************//
 // an object of *Abstract class* cannot be created never! - but pointer that points to abstract class  and reference that bounds to abstract class can be declared
-// Its derived class must must implement the pure virtual functions, otherwise it will be like Astract class
+// Its derived class must must implement the pure virtual functions, otherwise it will be like Abstract class
 
 
 class Car {
@@ -15,7 +15,7 @@ class Car {
         //     Car();
         // } // cannot return by value
 
-        /int func2(Car a) {} // If parameter has type of abstract class, it is error
+        int func2(Car a) {} // If parameter has type of abstract class, it is error
 };
 
 // Use of getSpeed in class Car

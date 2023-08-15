@@ -1,6 +1,7 @@
 {
     "terminal.integrated.shellArgs.windows": null,
     "files.associations": {
+        "*.ejs": "html",
         "xlocale": "cpp",
         "iostream": "cpp",
         "bit": "cpp",
@@ -55,6 +56,7 @@
         "xutility": "cpp",
         "functional": "cpp",
         "unordered_map": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "array": "cpp"
     }
 }

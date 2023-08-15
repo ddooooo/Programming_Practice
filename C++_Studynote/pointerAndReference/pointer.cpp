@@ -39,7 +39,9 @@ int main() {
     ptrc = &a;
     ptrc++; // change the address of the pointer is valid
     *ptrc = a; // change the value of pointer is NOT valid
-    cptr = &a;
+    cptr = &a; // change the address of the pointer is NOT valid - const pointer - pointer is a const
+    cptr++; // change the address of the pointer is NOT valid - const pointer - pointer is a const
+    *cptr = a; // change the value of pointer is valid - const pointer - the value that is pointed by const pointer is not const, so can be changed
     const int wow;
     iptr = new int[10];
     
